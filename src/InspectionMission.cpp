@@ -99,14 +99,14 @@ InspectionMission::InspectionMission(ros::NodeHandle nh)
 
 InspectionMission::~InspectionMission()
 {
-
+    // Empty destructor
 }
 
 void InspectionMission::readCallback(const navigation_manager_msgs::LocalPlannerStatus & msg)
 {
     if(msg.status == 1 || cnt == 0)
     {
-        ROS_INFO("Moving to the GOAL");
+        // ROS_INFO("Moving to the GOAL");
         moving = true;
         cnt ++;
     }
@@ -138,24 +138,10 @@ void InspectionMission::publish_navgoal(std::string name)
 
 void InspectionMission::run()
 {
-    // cout << "moving bool" << endl;
-    // cout << moving << endl;
-    // cout << "" << endl;
-
-    // cout << "navgoal num" << endl;
-    // cout << navgoal_num << endl;
-    // cout << "" << endl;
-
-    // cout << "lunghezza del name vector" << endl;
-    // cout << name.size() << endl;
-    // cout << "" << endl;
 
     if(!moving && navgoal_num < name.size())
     {
         publish_navgoal(name.at(navgoal_num));
-        cout << "a cosa sto puntando navgoal name" << endl;
-        cout << name.at(navgoal_num) << endl;
-        cout << "" << endl;
         moving = true;
         navgoal_num ++;
     }
