@@ -23,6 +23,7 @@ InspectionMission::InspectionMission(ros::NodeHandle nh)
     environment_list_push = environment_list[0];
     auto a = environment_list[0];
     std::vector<decltype(a)> v;
+    
     for (int i = 0; i < environment_list.size(); i++)
     {
             v.push_back(environment_list[i]);

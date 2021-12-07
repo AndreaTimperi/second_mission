@@ -22,16 +22,17 @@
 
 using namespace std;
 
-class InspectionMission{
+class InspectionMissionOnline{
 
     void readCallback(const navigation_manager_msgs::LocalPlannerStatus & msg);
     void publish_navgoal(std::string name);
+    void updating_navgoal(int row_id, int column_id, int navgoal_num);
 
     ros::ServiceClient image_saver_depth_front, image_saver_depth_rear, image_saver_depth_right, image_saver_depth_left;
     ros::Publisher navigation_goal_pub;
     ros::Subscriber sub_travel;
 
-    int cnt, navgoal_num, rows, columns; //TODO levare queste robe = 0 o = false
+    int cnt, navgoal_num, rows, columns, row_id, column_id; 
     bool moving;
 
     vector<string> name;
@@ -48,10 +49,12 @@ class InspectionMission{
     string path_planning_topic = "/path_planning_and_following/path_follower/status";
     boost::shared_ptr<navigation_manager_msgs::LocalPlannerStatus const> first_state;
 
+    ros::NodeHandle nh;
+
 public:
 
-    InspectionMission(ros::NodeHandle nh);
-    ~InspectionMission();
+    InspectionMissionOnline();
+    ~InspectionMissionOnline();
 
     void run();
 

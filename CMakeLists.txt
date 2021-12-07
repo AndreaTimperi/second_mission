@@ -39,8 +39,13 @@ include_directories(include
 )
 
 add_executable(second_mission_node src/InspectionMission.cpp src/main_mission.cpp )
+add_executable(second_mission_online_node src/InspectionMissionOnline.cpp src/main_mission_online.cpp )
 
 add_dependencies(second_mission_node ${catkin_EXPORTED_TARGETS})
+add_dependencies(second_mission_online_node ${catkin_EXPORTED_TARGETS})
 
 target_link_libraries(second_mission_node
 ${catkin_LIBRARIES} )
+target_link_libraries(second_mission_online_node
+${catkin_LIBRARIES} )
+
