@@ -26,7 +26,7 @@ class InspectionMissionOnline{
 
     void readCallback(const navigation_manager_msgs::LocalPlannerStatus & msg);
     void publish_navgoal(std::string name);
-    void updating_navgoal(int row_id, int column_id, int navgoal_num);
+    void updating_navgoal();
 
     ros::ServiceClient image_saver_depth_front, image_saver_depth_rear, image_saver_depth_right, image_saver_depth_left;
     ros::Publisher navigation_goal_pub;
@@ -43,7 +43,7 @@ class InspectionMissionOnline{
     state_machine_msgs::StateWithInitialState navigation_goal_msg;
     geometry_msgs::TransformStamped transformStamped;
 
-    Eigen::Vector3d goal_position_map;
+    Eigen::Vector3d goal_position_map, goal_position_base;
     Eigen::Isometry3d base_to_map;
     
     string path_planning_topic = "/path_planning_and_following/path_follower/status";
