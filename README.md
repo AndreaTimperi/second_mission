@@ -12,4 +12,4 @@ You will recevie in the shell the question concerning the grid dimensions for th
 
 Once setted both, the robot will start the recording mission
 
-LETS TRY
+LETS TRY CIAO!
